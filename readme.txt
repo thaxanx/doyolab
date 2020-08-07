@@ -1,1 +1,1 @@
-FIJIOKA FACTORY! :)
+Welcome to FIJIOKA FACTORY! :)

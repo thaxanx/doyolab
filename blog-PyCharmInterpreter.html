@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>PythonJapanese - 藤岡工房</title>
+    <title>PyCharmInterpreter - 藤岡工房</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -99,120 +99,158 @@
                 <article class="blog-post">
 
                     <div class="blog-post__header">
-                        <h1 class="blog-post__title">PyCharmの日本語化</h1>
+                        <h1 class="blog-post__title">PyCharmのインタープリターの設定</h1>
 
                         <div class="blog-post__meta">
 
-                            <div class="blog-post__date">2020, 7, 20</div>
+                            <div class="blog-post__date">2020, 8, 7</div>
 
                             <p class="blog-post__cat">
-                                <a href="0">Design</a>
-                                <a href="0">Frontend</a>
-                                <a href="0">Featured</a>
+                                <a href="#0">Design</a>
+                                <a href="#0">Frontend</a>
+                                <a href="#0">Featured</a>
                             </p>
 
                         </div>
                     </div> <!-- blog-post__header -->
 
                     <div class="blog-post__thumb">
-                        <img src="images/blog/Python/PyCharmJapanese/JapanesePyCharm.jpg" srcset="images/blog/Python/PyCharmJapanese/JapanesePyCharm.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="JapanesePyCharm">
+                        <img src="images/blog/Python/PyCharmInterpreter/title.jpg" srcset="images/blog/Python/PyCharmInterpreter/title.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PyCharmInterpreter">
                     </div> <!-- blog-post__thumb -->
 
                     <div class="blog-post__content">
 
                         <p class="lead drop-cap">
-                            PyCharmは英語がデフォルトです。英語が分からなくて動かせない…という人はPyCharmを日本語化してみましょう。日本語化はPleiadesのプラグインを利用します。今回はWindows10、PyCharm Community Edtion 2020.1.3という環境で行います。
+                            PyCyarmのインタープリターの設定について説明します。簡単にいうと、PyCharmとPythonの紐づけ設定のようなものです。
                         </p>
 
-                        <h3>Pleiadesプラグインのダウンロード</h3>
-
-                        <p>
-                            まずは下記のリンクからPleiadesプラグインのダウンロードページを開きます。
-                        </p>
-
-                        <p>・
-                            <a href="https://mergedoc.osdn.jp/#pleiades.html#PLUGIN" target="_blank" title="Pleiades">Pleiades-Download</a>
-                        </p>
-                        
-                        <p>
-                            ページが開いたら、「Pleiadesプラグイン・ダウンロード」という欄の「Windows」という場所をクリックしてダウンロードしてください。Macの方は「Mac」をクリックしてダウンロードしてください。
-                        </p>
-                        
-                        <p>
-                            <img src="images/blog/Python/PyCharmJapanese/Pleiades-1920.jpg" srcset="images/blog/Python/PyCharmJapanese/Pleiades-1920.jpg 1920w, 
-                                     images/blog/Python/PyCharmJapanese/Pleiades-960.jpg 960w" sizes="(max-width: 1920px) 100vw, 1920px" alt="Pleiades">
-                        </p>
-
-                        <h3>ダウンロードしたファイルの解凍</h3>
+                        <h3>インタープリター設定とは</h3>
 
                         <p>
-                            ダウンロードした「pleiades-win.zip」ファイルを解凍してください。なおWindowsの標準機能で解凍するとエラーになる可能性があるので、「7-Zip」などを使用するといいと思います。解凍したらその「pleiades-win」フォルダの一番下にある「setup.exe」をダブルクリックで実行してください。
+                            インタープリターとは本来「通訳する人」という意味の英語です。<br>
+                            用語としてはその名の通り、言語のソースコードを１行ずつ通訳（解釈）して実行していくためのソフトウェアのことです。
                         </p>
 
                         <p>
-                            <img src="images/blog/Python/PyCharmJapanese/PleiadesZip.jpg" srcset="images/blog/Python/PyCharmJapanese/PleiadesZip.jpg 1200w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PleiadesZip">
-                        </p>
-                        
-                        <h3>セットアップ</h3>
-
-                        <p>
-                            セットアップ画面が起動しましたら、「日本語化するアプリケーション」の選択ボタンから「PyCharm」の実行ファイルを選択してしてください。僕の場合は「C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.3\bin\pycharm64.exe」でした。（これがデフォルトだと思います。）「Pleiadesが配置されるディレクトリ」「Pleiadesの設定が追加されるファイル」は自動で設定されます。選択できましたら「日本語化する」をクリックしてください。
+                           Pythonのソースコードはそのファイルだけでは実行することができません。Pythonなどのインタープリターが解釈することで初めて実行することができるのです。<br>
+                            つまりインストールしたPythonそのものがインタープリターなのです。
                         </p>
 
                         <p>
-                            <img src="images/blog/Python/PyCharmJapanese/PleiadesFile.jpg" srcset="images/blog/Python/PyCharmJapanese/PleiadesFile.jpg 1000w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PleiadesFile">
+                            今回のインタープリター設定はこれから書く（今書いている）コードを、どのインタープリターソフト（Python）に解釈、実行させるかを設定することです。
+                        </p>
+                        
+                        <h3>インタープリターを設定する</h3>
+                        
+                        <p>
+                            PyCharmのインタープリターの設定は主に下記の二つに設定できる方法があります。
+                        </p>
+
+                        <ul>
+                            <li>
+                                <h5>
+                                    新規プロジェクト
+                                </h5>
+                            </li>
+
+                            <li>
+                                <h5>
+                                    既存のプロジェクト
+                                </h5>
+                            </li>
+                        </ul>
+
+                        <h3>新規プロジェクトに設定する</h3>
+
+                        <p>
+                            新規のプロジェクトにインタープリターを設定します。
                         </p>
                         
                         <p>
-                            完了したら下記のような画面が表示されるので「OK」をクリックして閉じてください。
-                        </p>
-                        
-                        <p>
-                            <img src="images/blog/Python/PyCharmJapanese/PleiadesWindow.jpg" srcset="images/blog/Python/PyCharmJapanese/PleiadesWindow.jpg 600w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PleiadesWindow">
+                            メインメニューから、「File」→「New Project」をクリックします。<br>
+                            もしくはWelcome to PyCharm（ようこそ）画面で、「Create New Project」をクリックします。
                         </p>
 
                         <p>
-                            日本語化完了です。「終了」をクリックして閉じてください。
+                            <img src="images/blog/Python/PyCharmInterpreter/NewProject.jpg" srcset="images/blog/Python/PyCharmInterpreter/NewProject.jpg 1500w" sizes="(max-width: 1920px) 100vw, 1920px" alt="NewProject">
+                        </p>
+                        
+                        <p>
+                            <img src="images/blog/Python/PyCharmInterpreter/CreateNewProject.jpg" srcset="images/blog/Python/PyCharmInterpreter/CreateNewProject.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="CreateNewProject">
                         </p>
 
                         <p>
-                            <img src="images/blog/Python/PyCharmJapanese/PleiadesFinish.jpg" srcset="images/blog/Python/PyCharmJapanese/PleiadesFinish.jpg 900w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PleiadesFinish">
+                            下記の画面が表示されたら、プロジェクト名を入力します。<br>
+                            Locationの右端、untitledとなっているところに任意の名前を入力します。<br>
+                            なおこの場所にプロジェクトファイルが作られます。
                         </p>
-                        
-                        <h3>PyCharmの起動</h3>
-                        
+
                         <p>
-                            PyCharmを起動して日本語になっているか確認してみましょう。
+                            <img src="images/blog/Python/PyCharmInterpreter/Location.jpg" srcset="images/blog/Python/PyCharmInterpreter/Location.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="Location">
                         </p>
-                        
+
                         <p>
-                            <img src="images/blog/Python/PyCharmJapanese/JapanesePyCharm.jpg" srcset="images/blog/Python/PyCharmJapanese/JapanesePyCharm.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="JapanesePyCharm">
+                            次に下記のように▼Prpject interpreter :の▼をクリックし、下に展開します。<br>
+                            上のNew environment usingは仮想環境を作成する場合に選択します。<br>
+                            下のExisting interpreterはシステムにインストールしてあるインタープリターを使用する際に選択します。今回はこちらを選択します。<br>
+                            複数ある場合はプルダウンして選択しましょう。
                         </p>
-                        
-                        <h3>再び英語に戻す方法</h3>
-                        
+
                         <p>
-                            起動画面の右下の構成をクリックして展開し、「カスタムVMオプションの編集…」をクリックします。
-                        </p>
-                        
-                        <p>
-                            <img src="images/blog/Python/PyCharmJapanese/PyCharmVM.jpg" srcset="images/blog/Python/PyCharmJapanese/PyCharmVM.jpg 900w" sizes="(max-width: 1920px) 100vw, 1920px" alt="PyCharmVM">
+                            <img src="images/blog/Python/PyCharmInterpreter/ExistingInterpreter.jpg" srcset="images/blog/Python/PyCharmInterpreter/ExistingInterpreter.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="ExistingInterpreter">
                         </p>
                         
                         <p>
-                            vmoptionsファイルが表示されるます。日本語化をしている場合、下記の一番下の二行のコードが追加されていると思います。この二行のコードの先頭に「＃」を入力しコードを無効化します。その後「保存」をクリックしてください。
+                            Interpreter :の場所に＜No Interpreter＞と表示され選択出来ない場合は、右にある…をクリックします。
                         </p>
                         
                         <p>
-                            <img src="images/blog/Python/PyCharmJapanese/vmoptions.jpg" srcset="images/blog/Python/PyCharmJapanese/vmoptions.jpg 1920w" sizes="(max-width: 1920px) 100vw, 1920px" alt="vmoptions">
+                            <img src="images/blog/Python/PyCharmInterpreter/add.jpg" srcset="images/blog/Python/PyCharmInterpreter/add.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="add">
                         </p>
                         
                         <p>
-                            保存した後再起動することで英語に戻ります。また日本語にしたい場合は、同じ手順で「＃」を消去してください。
+                            下記の画面が表示されたら、左にあるSystem Interpreterを選択します。そうすると右のInterpreterの場所にインストールしたPythonが表示されます。バージョンを選択してOKをクリックしてください。
                         </p>
                         
                         <p>
-                            最終的には英語でできるとベストですが、使いこなせるようになるまでは日本語のほうが効率がいいかもしれませんね。＾＾
+                            <img src="images/blog/Python/PyCharmInterpreter/SystemInterpreter.jpg" srcset="images/blog/Python/PyCharmInterpreter/SystemInterpreter.jpg 830w" sizes="(max-width: 1920px) 100vw, 1920px" alt="SystemInterpreter">
+                        </p>
+                        
+                        <p>
+                            選択ができたら「Create」をクリックしてプロジェクトを作成しましょう。
+                        </p>
+                        
+                        <p>
+                            <img src="images/blog/Python/PyCharmInterpreter/Create.jpg" srcset="images/blog/Python/PyCharmInterpreter/Create.jpg 800w" sizes="(max-width: 1920px) 100vw, 1920px" alt="Create">
+                        </p>
+                        
+                        <h3>既存プロジェクトに設定する</h3>
+                        
+                        <p>
+                            新規のプロジェクトにインタープリターを設定します。
+                        </p>
+                        
+                        <p>
+                            まず設定したいプロジェクトを開きます。<br>
+                            そのあとメインメニューから、「File」→「Settings」をクリックします。<br>
+                            「Project :プロジェクト名」→「Project Interpreter」を選択します。
+                        </p>
+                        
+                        <p>
+                            <img src="images/blog/Python/PyCharmInterpreter/ProjectInterpreter.jpg" srcset="images/blog/Python/PyCharmInterpreter/ProjectInterpreter.jpg 1000w, " sizes="(max-width: 1920px) 100vw, 1920px" alt="ProjectInterpreter">
+                        </p>
+                        
+                        <p>
+                            「Project Interpreter」からプルダウンして選択してください。<br>
+                            System Interpreterなどを追加したい場合は右の歯車マーク→「add」から追加することができます。
+                        </p>
+                        
+                        <p>
+                            <img src="images/blog/Python/PyCharmInterpreter/ChangeInterpreter.jpg" srcset="images/blog/Python/PyCharmInterpreter/ChangeInterpreter.jpg 1000w, " sizes="(max-width: 1920px) 100vw, 1920px" alt="ChangeInterpreter">
+                        </p>
+                        
+                        <p>
+                            「OK」をクリックすると設定完了です。
                         </p>
 
 
@@ -226,15 +264,15 @@
         <div class="blog-post-nav-wrap">
             <div class="row blog-post-nav">
                 <div class="column large-6 tab-12 blog-post-nav__prev">
-                    <a href="blog-PyCharmInstall.html" rel="prev">
+                    <a href="blog-PyCharmJapanese.html" rel="prev">
                         <span>Prev</span>
-                        PyCharmのインストール方法
+                        PyCharmの日本語化
                     </a>
                 </div>
                 <div class="column large-6 tab-12 blog-post-nav__next">
-                    <a href="blog-PyCharmInterpreter.html" rel="next">
+                    <a href="#0" rel="next">
                         <span>Next</span>
-                        PyCharmのインタープリターの設定
+                        
                     </a>
                 </div>
             </div>
@@ -254,7 +292,7 @@
                     <ol class="commentlist">
 
                         <!-- ここにコメントリスト -->
-
+                        
                     </ol>
                     <!-- END commentlist -->
 
