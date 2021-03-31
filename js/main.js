@@ -24,6 +24,7 @@
 
         const preloader = document.querySelector('#preloader');
 
+        // #preloaderが見つからないときは、returnで処理を終了する。
         if (!preloader) return;
 
         document.querySelector('html').classList.add('ss-preload');
@@ -33,6 +34,7 @@
             document.querySelector('html').classList.remove('ss-preload');
             document.querySelector('html').classList.add('ss-loaded');
 
+            // transitionが終了したとき、#preloaderをdisply = noneで見えなくする。
             preloader.addEventListener('transitionend', function(e) {
                 if (e.target.matches("#preloader")) {
                     this.style.display = 'none';
@@ -40,7 +42,7 @@
             });
         });
 
-        // force page scroll position to top at page refresh
+        // ページの更新時にページのスクロール位置を強制的に上に移動する。
         window.addEventListener('beforeunload' , function () {
             window.scrollTo(0, 0);
         });
