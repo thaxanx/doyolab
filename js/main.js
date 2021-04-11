@@ -37,19 +37,46 @@
             // transitionが終了したとき、#preloaderをdisply = noneで見えなくする。
             preloader.addEventListener('transitionend', function(e) {
                 if (e.target.matches("#preloader")) {
-                    this.style.display = 'none';
+//                    this.style.display = 'none';
                 }
             });
         });
 
         // ページの更新時にページのスクロール位置を強制的に上に移動する。
-        window.addEventListener('beforeunload' , function () {
-            window.scrollTo(0, 0);
-        });
+//        window.addEventListener('beforeunload' , function () {
+//            window.scrollTo(0, 0);
+//        });
     };
 
-
-
+    
+    
+   /* fade out
+    * -------------------------------------------------- */
+    const ssFadeOut = function() {
+        // 別ウインドウと#リンク以外の遷移を止める。
+        $('a:not([href^="#"]):not([target])').on('click', function(e){
+            e.preventDefault();
+            
+            // 遷移先のurlを取得。
+            var url = $(this).attr('href');
+            
+            // アニメーションクラスを挿入。
+            if (url !== '') {
+                console.log(url);
+                $('html').removeClass('ss-loaded');
+                $('html').addClass('fadeout');
+                
+                // 0.6秒後に取得したurlに遷移。
+                setTimeout(function(){
+                    window.location = url;
+                }, 600);
+            }
+            return false;
+        });
+    };
+    
+    
+    
    /* move header
     * -------------------------------------------------- */
     const ssMoveHeader = function () {
@@ -350,11 +377,47 @@
     };
 
 
+    /* map
+    * ------------------------------------------------------ */
+    const initMap = function() {
+        var latlng = new google.maps.LatLng(35.458689826364456, 139.62773998276748);
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: latlng,
+            zoom: 15,
+            disableDefaultUI: true,
+            zoomControl: true,
+        });
+        
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: 'KU Fab Studio',
+            animation: google.maps.Animation.BOUNCE,
+        });
+        
+        // マーカー
+        var infoWindow = new google.maps.InfoWindow({
+            position: latlng,
+            content: '<strong>神奈川大学みなとみらいキャンパス<br>KU Fab Studio</strong><br>神奈川県横浜市西区みなとみらい４－５－３',
+        });
+        
+        // クリックしたときにマーカーを表示
+        marker.addListener('click', function() {
+            infoWindow.open(map);
+        });
+    };
+
+    google.maps.event.addDomListener( window, 'load', initMap );
+
+
+
    /* initialize
     * ------------------------------------------------------ */
     (function ssInit() {
 
         ssPreloader();
+        ssFadeOut();
         ssMoveHeader();
         ssMobileMenu();
         ssSearch();

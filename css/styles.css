@@ -2116,10 +2116,12 @@ img,
     -ms-flex-line-pack: center;
     align-content: center;
     background: var(--color-kurotsurubami);
-    z-index: 500;
+    z-index: 9999;
     height: 100vh;
     width: 100%;
     opacity: 1;
+    -webkit-transition: opacity .6s 0s ease-in-out;
+    transition: opacity .6s 0s ease-in-out;
 }
 
 .no-js #preloader, .oldie #preloader {
@@ -2209,6 +2211,28 @@ img,
     -webkit-transition: opacity .6s .9s ease-in-out;
     transition: opacity .6s .9s ease-in-out;
 }
+
+
+
+/* ------------------------------------------------------------------- 
+ * ## page fadeout
+ * ------------------------------------------------------------------- */
+.fadeout #preloader {
+    animation: fadeIn .6s ease-in-out;
+    -webkit-animation: fadeIn .6s ease-in-out;
+}
+
+.fadeout #preloader #loader {
+    display: none;
+}
+
+/*
+html.fadeout section {
+    transform-origin: 50% 50%;
+    transform: scale(1.03);
+    transition: all .6s ease-in-out;
+}
+*/
 
 
 
@@ -4650,6 +4674,10 @@ body.search-is-visible {
 /* ------------------------------------------------------------------- 
  * ## contact content
  * ------------------------------------------------------------------- */
+.talk {
+    margin: auto;
+}
+
 .s-contact__content .display-1 {
     font-size: var(--text-xl);
     line-height: var(--vspace-1_75);
@@ -4671,11 +4699,13 @@ body.search-is-visible {
  * ## contact info blocks
  * ------------------------------------------------------------------- */
 .s-contact__info-blocks {
-    margin-left: auto;
+    margin: auto;
+    margin-top: var(--vspace-2);
 }
 
 .s-contact__info-block {
     padding-left: 4rem;
+/*    margin: auto;*/
     margin-bottom: var(--vspace-1);
     position: relative;
 }
@@ -4688,6 +4718,13 @@ body.search-is-visible {
 
 .s-contact__info-block-icon svg path {
     fill: white;
+}
+
+#map {
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    color: var(--color-dark-bg);
 }
 
 /* ------------------------------------------------------------------- 
@@ -4716,7 +4753,20 @@ body.search-is-visible {
     }
 }
 
+@media screen and (max-width: 1300px) {
+    .s-contact__hello {
+        -ms-flex: 0 0 100%;
+        -webkit-box-flex: 0;
+        flex: 0 0 100%;
+        max-width: 100%;
+        
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        justify-content: space-around;
+    }
 
+}
 
 /* ===================================================================
  * # footer

@@ -22,6 +22,7 @@
     ================================================== -->
     <script src="../js/modernizr.js"></script>
     <script defer src="../js/fontawesome/all.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBtQzd3XEwoWiEo-IYGrik11dBhGwCpozY"></script>
 
     <!-- favicons
     ================================================== -->
@@ -129,13 +130,13 @@
                     <div class="blog-post__content">
 
                         <p class="lead drop-cap">
-                            前回Fusion360のCAMで生成したNCデータ（Gコード）を使って、CNCルーターを動かしていきます。ついに木材を切削するという山場を迎えます。
+                            Fusion360のCAMで生成したNCデータ（Gコード）を使って、CNCルーターを動かしていきます。ついに、木材を切削するという山場を迎えます。
                         </p><br>
 
                         <h3>準備</h3>
 
                         <p>
-                            まず、元になる木材を入手します。今回はギターやヴァイオリンなどの楽器用木材を加工、販売しているアイチ木材加工株式会社さんから取り寄せました。通称アイモクさんです。ネットで取り寄せることができるのでとても便利です。材はボディ用サイズのバスウッドです。
+                            まず、元になる木材を入手します。今回はギターやヴァイオリンなどの楽器用木材を加工、販売している<a href="http://www.aimokukakou.jp/" target="_blank">アイチ木材加工株式会社</a>さんから取り寄せました。通称アイモクさんです。ネットで取り寄せることができるのでとても便利です。材はボディ用サイズのバスウッドです。
                         </p>
                         
                         <p>
@@ -149,7 +150,7 @@
                         <h3>CNCとPCを起動</h3>
                         
                         <p>
-                            CNCとPCを起動し、制御用のソフトを立ち上げます。ソフトから前回作成したNCデータを開き、Gコードを読み込みセットアップをします。
+                            CNCとPCを起動し、USBCNCという制御用のソフトを立ち上げます。ソフトから前回作成したNCデータを開き、Gコードを読み込みセットアップをします。
                         </p>
                         
                         <p>
@@ -157,7 +158,7 @@
                         </p>
                         
                         <p>
-                            エンドミルを付け終わったらPCを操作してエンドミルの中心を木材の左下に合わせます。合わせた場所を原点として、XYZ軸を0に設定します。このあたりの写真撮ってませんでした、、、。
+                            エンドミルを付け終わったら、PCを操作してエンドミルの中心を木材の左下に合わせます。合わせた場所を原点として、XYZ軸を0に設定します。このあたりの写真撮ってませんでした、、、。
                         </p>
                                                 
                         <h3>切削開始</h3>
@@ -197,7 +198,7 @@
                         <h3>工程を追加</h3>
                         
                         <p>
-                            それともう一つミスがあり、表面のシールドを挿すプラグのザグリを忘れていました、、、。なのでまた新たなセットアップを作成し、追加で削っていきます。
+                            それともう一つミスがあり、表面のシールドを挿すプラグのザグリを忘れていました、、、。なので、また新たなセットアップを作成し、追加で削っていきます。
                         </p>
 
                         <p>
@@ -218,11 +219,15 @@
                         </p>
                         
                         <p>
-                            そんなこんなで、輪郭が切り離せませんでしたがなんとか終わりました。午前中に始めたのですが、終わったときにはだいぶ夜になっていました。お付き合いいただいた長江先輩には感謝しています。ありがとうございました！
+                            そんなこんなで、輪郭が切り離せませんでしたがなんとか終わりました。午前中に始めたのですが、終わったときにはだいぶ夜になっていました。お付き合いいただいた長江先輩には感謝です。ありがとうございました！
                         </p>
                         
                         <p>
-                            終わるか焦っていてまた写真撮るの忘れてました、、、。
+                            作業後、長江先輩と見に行った『ボヘミアンラプソディー』最高でした！！！
+                        </p>
+                        
+                        <p>
+                           あ、 終わるか焦っていてまた写真撮るのを忘れていました、、、
                         </p>
                         
                         <h3>ピックガードとキャビティ―カバー</h3>
@@ -253,6 +258,13 @@
                                 sizes="(max-width: 1920px) 100vw, 1920px" alt="キャビティカバーのデータ">
                         </p>
                         
+                        <p>
+                            次は、いよいよ組み込みに移っていきます。
+                        </p>
+                        
+                        <p>
+                            おっと、その前にボディを切り離さないとですね、、、
+                        </p>
 
                     </div> <!-- end blog-post__content -->
 
@@ -346,7 +358,7 @@
 
     <!-- contact
     ================================================== -->
-    <section id="contact" class="s-contact s-dark">
+    <section id="contact" class="s-contact target-section s-dark">
 
         <div class="row section-head">
             <div class="column large-3 medium-12">
@@ -357,7 +369,7 @@
 
         <div class="row s-contact__content">
 
-            <div class="column large-7 medium-12">
+            <div class="column large-7 medium-12 talk">
                 <h3 class="display-1">
                     何か質問や相談、ご依頼などありましたらお気軽にご連絡ください。
                 </h3>
@@ -367,10 +379,14 @@
                 </div>
             </div>
 
-            <!--
-            <div class="column large-4 medium-12 s-contact__info-blocks">
+        </div> <!-- end s-contact__content -->
+
+        <div class="row s-contact__content">
+            
+           <!-- 住所や電話番号 -->
+            <div class="column large-12 medium-12 s-contact__info-blocks">
                 <div class="row">
-                    <div class="column large-12 medium-6 tab-12">
+                    <div class="column s-contact__hello large-4 ">
                         <div class="s-contact__info-block">
                             
                             <span class="s-contact__info-block-icon">
@@ -379,32 +395,34 @@
         
                             <h5>Find us here</h5>
                             <p>
-                            1600 Amphitheatre Parkway <br>
-                            Mountain View, California <br>
-                            94043 US
+                            神奈川県横浜市西区 <br>
+                            みなとみらい４－５－３ <br>
+                            神奈川大学みなとみらいキャンパス <br>
+                            KU Fab Studio
                             </p>
-                        </div> <!-- end s-contact__info-block --
-                    </div>
-
-                    <div class="column large-12 medium-6 tab-12">
+                        </div> <!-- end s-contact__info-block -->
+                        
                         <div class="s-contact__info-block">
                             <span class="s-contact__info-block-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17.707 12.293a.999.999 0 00-1.414 0l-1.594 1.594c-.739-.22-2.118-.72-2.992-1.594s-1.374-2.253-1.594-2.992l1.594-1.594a.999.999 0 000-1.414l-4-4a.999.999 0 00-1.414 0L3.581 5.005c-.38.38-.594.902-.586 1.435.023 1.424.4 6.37 4.298 10.268s8.844 4.274 10.269 4.298h.028c.528 0 1.027-.208 1.405-.586l2.712-2.712a.999.999 0 000-1.414l-4-4.001zm-.127 6.712c-1.248-.021-5.518-.356-8.873-3.712-3.366-3.366-3.692-7.651-3.712-8.874L7 4.414 9.586 7 8.293 8.293a1 1 0 00-.272.912c.024.115.611 2.842 2.271 4.502s4.387 2.247 4.502 2.271a.991.991 0 00.912-.271L17 14.414 19.586 17l-2.006 2.005z"/></svg>
+                                <i class="far fa-envelope"></i>
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17.707 12.293a.999.999 0 00-1.414 0l-1.594 1.594c-.739-.22-2.118-.72-2.992-1.594s-1.374-2.253-1.594-2.992l1.594-1.594a.999.999 0 000-1.414l-4-4a.999.999 0 00-1.414 0L3.581 5.005c-.38.38-.594.902-.586 1.435.023 1.424.4 6.37 4.298 10.268s8.844 4.274 10.269 4.298h.028c.528 0 1.027-.208 1.405-.586l2.712-2.712a.999.999 0 000-1.414l-4-4.001zm-.127 6.712c-1.248-.021-5.518-.356-8.873-3.712-3.366-3.366-3.692-7.651-3.712-8.874L7 4.414 9.586 7 8.293 8.293a1 1 0 00-.272.912c.024.115.611 2.842 2.271 4.502s4.387 2.247 4.502 2.271a.991.991 0 00.912-.271L17 14.414 19.586 17l-2.006 2.005z"/></svg>-->
                             </span>
         
                             <h5>Say hello</h5>
                             <p>
-                            hello@kreative.com <br>
-                            +197 543 2345 <br>
-                            +197 123 9876
+                            info@fujioka.works <br>
+                             <br>
+                            
                             </p>
-                        </div> <!-- end s-contact__info-block --
+                        </div> <!-- end s-contact__info-block -->
                     </div>
-                </div> <!-- end row --
-            </div> <!-- end s-contact__info-blocks --
-            -->
+                    
+                    <div id="map"></div>
 
-        </div> <!-- end s-contact__content -->
+                </div> <!-- end row -->
+            </div> <!-- end s-contact__info-blocks -->
+
+        </div>
 
     </section> <!-- end s-contact -->
 

@@ -22,6 +22,7 @@
     ================================================== -->
     <script src="../js/modernizr.js"></script>
     <script defer src="../js/fontawesome/all.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBtQzd3XEwoWiEo-IYGrik11dBhGwCpozY"></script>
 
     <!-- favicons
     ================================================== -->
@@ -317,7 +318,7 @@
 
     <!-- contact
     ================================================== -->
-    <section id="contact" class="s-contact s-dark">
+    <section id="contact" class="s-contact target-section s-dark">
 
         <div class="row section-head">
             <div class="column large-3 medium-12">
@@ -328,7 +329,7 @@
 
         <div class="row s-contact__content">
 
-            <div class="column large-7 medium-12">
+            <div class="column large-7 medium-12 talk">
                 <h3 class="display-1">
                     何か質問や相談、ご依頼などありましたらお気軽にご連絡ください。
                 </h3>
@@ -338,10 +339,14 @@
                 </div>
             </div>
 
-            <!--
-            <div class="column large-4 medium-12 s-contact__info-blocks">
+        </div> <!-- end s-contact__content -->
+
+        <div class="row s-contact__content">
+            
+           <!-- 住所や電話番号 -->
+            <div class="column large-12 medium-12 s-contact__info-blocks">
                 <div class="row">
-                    <div class="column large-12 medium-6 tab-12">
+                    <div class="column s-contact__hello large-4 ">
                         <div class="s-contact__info-block">
                             
                             <span class="s-contact__info-block-icon">
@@ -350,32 +355,34 @@
         
                             <h5>Find us here</h5>
                             <p>
-                            1600 Amphitheatre Parkway <br>
-                            Mountain View, California <br>
-                            94043 US
+                            神奈川県横浜市西区 <br>
+                            みなとみらい４－５－３ <br>
+                            神奈川大学みなとみらいキャンパス <br>
+                            KU Fab Studio
                             </p>
-                        </div> <!-- end s-contact__info-block --
-                    </div>
-
-                    <div class="column large-12 medium-6 tab-12">
+                        </div> <!-- end s-contact__info-block -->
+                        
                         <div class="s-contact__info-block">
                             <span class="s-contact__info-block-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17.707 12.293a.999.999 0 00-1.414 0l-1.594 1.594c-.739-.22-2.118-.72-2.992-1.594s-1.374-2.253-1.594-2.992l1.594-1.594a.999.999 0 000-1.414l-4-4a.999.999 0 00-1.414 0L3.581 5.005c-.38.38-.594.902-.586 1.435.023 1.424.4 6.37 4.298 10.268s8.844 4.274 10.269 4.298h.028c.528 0 1.027-.208 1.405-.586l2.712-2.712a.999.999 0 000-1.414l-4-4.001zm-.127 6.712c-1.248-.021-5.518-.356-8.873-3.712-3.366-3.366-3.692-7.651-3.712-8.874L7 4.414 9.586 7 8.293 8.293a1 1 0 00-.272.912c.024.115.611 2.842 2.271 4.502s4.387 2.247 4.502 2.271a.991.991 0 00.912-.271L17 14.414 19.586 17l-2.006 2.005z"/></svg>
+                                <i class="far fa-envelope"></i>
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17.707 12.293a.999.999 0 00-1.414 0l-1.594 1.594c-.739-.22-2.118-.72-2.992-1.594s-1.374-2.253-1.594-2.992l1.594-1.594a.999.999 0 000-1.414l-4-4a.999.999 0 00-1.414 0L3.581 5.005c-.38.38-.594.902-.586 1.435.023 1.424.4 6.37 4.298 10.268s8.844 4.274 10.269 4.298h.028c.528 0 1.027-.208 1.405-.586l2.712-2.712a.999.999 0 000-1.414l-4-4.001zm-.127 6.712c-1.248-.021-5.518-.356-8.873-3.712-3.366-3.366-3.692-7.651-3.712-8.874L7 4.414 9.586 7 8.293 8.293a1 1 0 00-.272.912c.024.115.611 2.842 2.271 4.502s4.387 2.247 4.502 2.271a.991.991 0 00.912-.271L17 14.414 19.586 17l-2.006 2.005z"/></svg>-->
                             </span>
         
                             <h5>Say hello</h5>
                             <p>
-                            hello@kreative.com <br>
-                            +197 543 2345 <br>
-                            +197 123 9876
+                            info@fujioka.works <br>
+                             <br>
+                            
                             </p>
-                        </div> <!-- end s-contact__info-block --
+                        </div> <!-- end s-contact__info-block -->
                     </div>
-                </div> <!-- end row --
-            </div> <!-- end s-contact__info-blocks --
-            -->
+                    
+                    <div id="map"></div>
 
-        </div> <!-- end s-contact__content -->
+                </div> <!-- end row -->
+            </div> <!-- end s-contact__info-blocks -->
+
+        </div>
 
     </section> <!-- end s-contact -->
 
