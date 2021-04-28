@@ -396,7 +396,7 @@
         var marker = new google.maps.Marker({
             position: latlng,
             map: map,
-            title: 'KU Fab Studio',
+            title: 'FabLabみなとみらい',
             animation: google.maps.Animation.BOUNCE,
         });
         
