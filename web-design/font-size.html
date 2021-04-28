@@ -5,8 +5,8 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>CNCでのVoice of the Octopusの切削 - 藤岡工房</title>
-    <meta name="description" content="">
+    <title>フォントのサイズについて - 藤岡工房</title>
+    <meta name="description" content="フォントのサイズについての備忘録です。「px」「%」「em」「rem」">
     <meta name="author" content="">
 
     <!-- mobile specific metas
@@ -60,7 +60,7 @@
                 <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li class="current"><a href="../index.html#blog">Journal</a></li>
-                    <li class="now"><a href="index.html">Voice of the Octopus</a></li>
+                    <li class="now"><a href="index.html">Web design</a></li>
                 </ul>
             </nav>
 
@@ -103,202 +103,202 @@
                 <article class="blog-post">
 
                     <div class="blog-post__header">
-                        <h1 class="blog-post__title">3.CNCでの切削</h1>
+                        <h1 class="blog-post__title">フォントのサイズについて</h1>
 
                         <div class="blog-post__meta">
 
-                            <div class="blog-post__date">2019, 07, 11</div>
+                            <div class="blog-post__date">2021, 04, 28</div>
 
                             <p class="blog-post__cat">
-                                <a href="#0">Bass Guitar</a>
-                                <a href="#0">CNC</a>
-                                <a href="#0">Fusion360</a>
+                                <a href="#0">Design</a>
+                                <a href="#0">Frontend</a>
+                                <a href="#0">CSS</a>
+                                <a href="#0">Font</a>
                             </p>
 
                         </div>
                     </div> <!-- blog-post__header -->
 
                     <div class="blog-post__thumb">
-                        <img src="../images/blog/voo/cnc/cnc4-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc4-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc4-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="表面の切削">
+                        <img src="../images/blog/web/font-size/fontsize.png" 
+                                srcset="../images/blog/web/font-size/fontsize.png 1280w"
+                                sizes="(max-width: 1280px) 100vw, 1280px"
+                                alt="Font size">
                     </div> <!-- blog-post__thumb -->
 
                     <div class="blog-post__content">
 
                         <p class="lead drop-cap">
-                            NCコードを生成したので、CNCルーターを使ってボディを加工していきます。これから長い長い戦いが始まります。
+                            フォントのサイズについての備忘録です。「px」「%」「em」「rem」
                         </p><br>
                         
-                        <h3>事前準備</h3>
+                        <h3>フォントサイズの指定方法</h3>
                         
                         <p>
-                            まず前回の「Drive Bird」の経験を踏まえて、切削途中でエラーや物理的な問題が起きた時の復帰方法について調べておきます。こちらについてはまた別ページでまとめます。
+                            CSSにおけるフォントサイズの指定方法は大まかに以下の二つ分けることができます。
+                        </p>
+                        
+                        <ul>
+                            <li>
+                                <h5>絶対値</h5>
+                                <p>どんな場合でもその指定した値で表示される。</p>
+                                <p>例：「px」</p>
+                            </li>
+                            
+                            <li>
+                                <h5>相対値</h5>
+                                <p>親要素のサイズによって値が可変して表示される。</p>
+                                <p>例：「%」「em」「rem」</p>
+                            </li>
+                        </ul>
+                        
+                        <h3>「px」</h3>
+                        
+                        <p>
+                            そもそも、pxとは画面に表示している色の最小単位のことです。画面全体のpx数はそれぞれデバイスによって違い、一般的なPCではフルHDの1920 × 1080pxがよく使われています。ちなみにHDは1280 × 720px、4Kは3840 ×2160pxです。
                         </p>
                         
                         <p>
-                            ボディ用の木材も入手しておきました。今回も「Drive Bird」の時と同じく、<a href="http://www.aimokukakou.jp/" target="_blank">アイチ木材加工株式会社</a>さんから取り寄せました。木材はアルダーの2Aグレードです。アルダーはギターやベースにおいてはスタンダードで、バランスのいいサウンドの材です。また柔らかめの材ですが、適度な硬さもあり密度も均一のため彫刻をするには最適の材です。
+                            例えばフォントサイズを32pxと指定した場合、ほかの要素に左右されずに必ず32pxで表示されます。
                         </p>
                         
-                        <p>こちらが用意した材です。2ピースですがいい材です。ステージにねじで木材を固定します。その後エンドミル、原点の調整をしセッティング完了です。</p>
+<pre><code class="language-css">
+    html {
+        font-size: 16px;  /* => 16px */
+    }
+    
+    body {
+        font-size: 32px;  /* => 32px */
+    }
+    
+    h1 {
+        font-size: 64px;  /* => 64px */
+    }
+</code></pre>
+                        
+                        <h3>「%」</h3>
                         
                         <p>
-                            <img src="../images/blog/voo/cnc/wood-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/wood-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/wood-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="固定されるアルダー材">
+                            %は親要素のフォントサイズを基準に、その何%なのかで大きさが決まります。
                         </p>
+                        
+                        <p>
+                            例えば親要素のフォントサイズが16pxの状態で、その子要素のフォントサイズに200%と指定した場合、子要素のフォントサイズは親要素16pxの200%の32pxの大きさで表示されます。
+                        </p>
+                        
+<pre><code class="language-css">
+    html {
+        font-size: 16px;
+    }
+    
+    body {
+        font-size: 200%;  /* => 32px */
+    }
+    
+    h1 {
+        font-size: 200%;  /* => 64px */
+    }
+</code></pre>
+                        
+                        <h3>「em」</h3>
+                        
+                        <p>
+                            emも%と似ていますが、親要素のフォントサイズを１とした場合の、その相対サイズで大きさを指定します。
+                        </p>
+                        
+                        <p>
+                            例えば親要素のフォントサイズが32pxの状態で、その子要素のフォントサイズに0.5emと指定した場合、子要素のフォントサイズは親要素16pxの0.5倍の8pxの大きさで表示されます。ちなみにCSSでは「0.5em」を「.5em」のように小数点前の0を省略することができます。
+                        </p>
+                        
+<pre><code class="language-css">
+    html {
+        font-size: 16px;
+    }
+    
+    body {
+        font-size: 0.5em;  /* => 8px */
+    }
+    
+    h1 {
+        font-size: 2em;  /* => 16px */
+    }
+</code></pre>
+                        
+                        <h3>「rem」</h3>
+                        
+                        <p>
+                            remは「root em」の略です。つまりremとは、ルート要素のフォントサイズを1とした場合の相対サイズです。ちなみにルート要素とは基本的にhtmlセレクタを指します。
+                        </p>
+                        
+                        <p>
+                            例えばルート要素のフォントサイズが16pxの状態で、対象要素のフォントサイズに2remと指定した場合、対象要素がどのような入れ子構造になっていても、フォントサイズはルート要素の2倍の32pxの大きさで表示されます。
+                        </p>
+                        
+<pre><code class="language-css">
+    html {
+        font-size: 16px;
+    }
+    
+    body {
+        font-size: 2rem;  /* => 32px */
+    }
+    
+    h1 {
+        font-size: 2rem;  /* => 32px */
+    }
+</code></pre>
+                        
+                        <h3>ブラウザのデフォルトサイズ</h3>
+                        
+                        <p>
+                            ちなみにブラウザのデフォルトフォントサイズは<strong>16px</strong>です。
+                        </p>
+                        
+<pre><code class="language-css">
+    html {
+        font-size: 100%;  /* => 16px */
+    }
+</code></pre>
+                        
+                        <h3>まとめ</h3>
+                        
+                        <p>
+                            まとめると以下の通りです。
+                        </p>
+                        
+                        <div class="table-responsive">
 
-                        <h3>切削開始</h3>
+                            <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>px</td>
+                                        <td>サイズを絶対値指定</td>
+                                    </tr>
+                                    <tr>
+                                        <td>%</td>
+                                        <td>サイズを親要素基準で相対値指定</td>
+                                    </tr>
+                                    <tr>
+                                        <td>em</td>
+                                        <td>サイズを親要素基準で相対値指定</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rem</td>
+                                        <td>サイズをルート要素基準で相対値指定</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
 
-                        <p>
-                            いよいよ切削開始です。最初は裏面の輪郭を削っていきます。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc1-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc1-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc1-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="裏面の切削">
-                        </p>
-                        
-                        <p>
-                            裏面が終わるとこんな感じです。ここで一度日を改めます。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/wood2-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/wood2-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/wood2-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="切削後の裏面">
-                        </p>
-                        
-                        <h3>ザグリの切削</h3>
-                        
-                        <p>
-                            数日後。裏面が終わったので、裏返してステージに固定していきます。次は表面のザグリの切削です。慎重に進めていきます。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc2-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc2-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc2-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="ザグリの切削">
-                        </p>
-                        
-                        <h3>外周の切削</h3>
-                        
-                        <p>
-                            次は表面の外周です。ここも問題なく進んでいきます。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc3-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc3-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc3-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="外周の切削">
-                        </p>
-                        
-                        <h3>表面の切削</h3>
-                        
-                        <p>
-                            エンドミルを3mmに交換し表面の切削をしていきます。ここの工程が30時間くらいかかります・・・。この段階で時刻は深夜23時。今日は申請書を出して学校に泊まります。寝ずに見守り続けます・・・。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc4-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc4-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc4-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="表面の切削">
-                        </p>
-                        
-                        <p>
-                            翌日さすがに眠かったので原田さんにお留守番を頼んでいったん家に帰ります。このとき事件が起こりました！！エンドミルが木に引っかかったらしく座標がずれてしまいました・・・！そこでいったん止めてもらって合流。そんなこともあろうかと事前に復帰方法を調べておいたので試してみます。ここで失敗したら今までの何十時間の切削が水の泡になるので、原田さんとびくびくしながら復帰方法を試してみると・・・<strong>成功！！！</strong>無事成功したので切削を続けていきます。よかったー！！！もう一晩学校で夜を明かすことになりますが・・・頑張っていきます。二日連続学校に泊まっているので、学校の警備員さんと仲良くなりました。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/usbcnc-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/usbcnc-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/usbcnc-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="USBCNCの復帰">
-                        </p>
-                        
-                        <h3>仕上げ加工</h3>
-                        
-                        <p>
-                            表面の切削が終わり、粗削り工程はすべて終わったので仕上げ加工に移ります。エンドミルを2mmボールエンドミルに交換し、仕上げ加工開始です。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc5-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc5-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc5-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="仕上げ加工">
-                        </p>
-                        
-                        <h3>タコへの彫刻</h3>
-                        
-                        <p>
-                            仕上げ加工まで終わったのでタコの表面の彫刻に移っていきます。エンドミルは引き続き2mm二枚刃ボールエンドミルです。ここでも事件が起こります！開始直後にガガガッ！と嫌な音が鳴ったため、急いで中止します。よく見てみるとエンドミルの固定が甘かったらしく、下にずれて深く削ってしまったようです。幸い少しだけで目立たなかったので難を逃れたのですが、本当に危なかったです。反省ですね。
-                        </p>
-                        
-                        <p>
-                            結果綺麗に削れました。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc6-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc6-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc6-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="タコへの彫刻">
-                        </p>
-                                                
-                        <h3>切り離し</h3>
-
-                        <p>
-                            最後に6mmエンドミルに交換し外周の輪郭を切り離していきます。
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/cnc7-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/cnc7-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/cnc7-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="切り離し工程">
-                        </p>
-                        
-                        <p>
-                            その後ミニのこぎりでタブを切断して完了です。長い戦いが終わりました！
-                        </p>
-                        
-                        <p>
-                            <img src="../images/blog/voo/cnc/bassbody-1260.jpg" 
-                                srcset="../images/blog/voo/cnc/bassbody-1260.jpg 1260w,
-                                        ../images/blog/voo/cnc/bassbody-630.jpg 630w"
-                                sizes="(max-width: 1260px) 100vw, 1260px"
-                                alt="裏面の切削">
-                        </p>
-                        
-                        <p>
-                            こちらは切削の動画です。
-                        </p>
-                        
-                        <div class="video-container">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3VE5drQ6JSE?rel=0" frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                                                
+                        
+                        <p>
+                            一番使いやすいpxだけで表記をした場合、ブラウザによって文字の大きさが変わってしまうことがあります。また全体の文字の大きさを変えたい場合、一つ一つ変更していかなくてはならないので大変です。
+                        </p>
+                        
+                        <p>
+                            それぞれ使いこなせるようにしたいですね。
+                        </p>
+
                     </div> <!-- end blog-post__content -->
 
                 </article> <!-- blog post -->
@@ -309,15 +309,15 @@
         <div class="blog-post-nav-wrap">
             <div class="row blog-post-nav">
                 <div class="column large-6 tab-12 blog-post-nav__prev">
-                    <a href="cam.html" rel="prev">
+                    <a href="redesign.html" rel="prev">
                         <span>Prev</span>
-                        2.CAMの設定
+                        ポートフォリオサイトのリニューアル
                     </a>
                 </div>
                 <div class="column large-6 tab-12 blog-post-nav__next">
-                    <a href="surface.html" rel="next">
+                    <a href="#0" rel="next">
                         <span>Next</span>
-                        4.研磨・塗装
+                        
                     </a>
                 </div>
             </div>

@@ -70,6 +70,10 @@
                 setTimeout(function(){
                     window.location = url;
                 }, 600);
+                setTimeout(function(){
+                    $('html').removeClass('fadeout');
+                    $('html').addClass('ss-loaded');
+                }, 700);
             }
             return false;
         });
@@ -399,7 +403,7 @@
         // マーカー
         var infoWindow = new google.maps.InfoWindow({
             position: latlng,
-            content: '<strong>神奈川大学みなとみらいキャンパス<br>KU Fab Studio</strong><br>神奈川県横浜市西区みなとみらい４－５－３',
+            content: '<strong>神奈川大学みなとみらいキャンパス<br>FabLabみなとみらい</strong><br>神奈川県横浜市西区みなとみらい４－５－３',
         });
         
         // クリックしたときにマーカーを表示

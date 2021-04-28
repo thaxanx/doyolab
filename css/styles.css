@@ -2134,7 +2134,7 @@ img,
 }
 
 #loader img {
-    width: 500px;
+    width: 30vw;
     animation: fadeIn .6s .5s ease-in-out;
     -webkit-animation: fadeIn .6s ease-in-out;
 }
